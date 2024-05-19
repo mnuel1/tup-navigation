@@ -24,20 +24,20 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="places"
         options={{
-          title: 'Explore',
+          title: 'Places',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'location' : 'location-outline'} color={color} />
           ),
         }}
       />        
       <Tabs.Screen
-        name="profile"
+        name="map"
         options={{
-          title: 'Profile',
+          title: 'Map',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'person' : 'person-outline'} color={color} />
+            <TabBarIcon name={focused ? 'map' : 'map-outline'} color={color} />
           ),
         }}
       />

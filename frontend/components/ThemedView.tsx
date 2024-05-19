@@ -1,6 +1,5 @@
-import { View, type ViewProps } from 'react-native';
+import { View, type ViewProps, ImageBackground, StyleSheet } from 'react-native';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedViewProps = ViewProps & {
   lightColor?: string;
@@ -8,7 +7,22 @@ export type ThemedViewProps = ViewProps & {
 };
 
 export function ThemedView({ style, lightColor, darkColor, ...otherProps }: ThemedViewProps) {
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
+  
+  return (
+    <ImageBackground
+    source={require('../assets/images/home.png')}
+    style={styles.backgroundImage}>
+    
+      <View style={style} {...otherProps} />
+    </ImageBackground>
+    
 
-  return <View style={[{ backgroundColor }, style]} {...otherProps} />;
+  );
 }
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // 'cover' or 'contain' based on your requirement    
+  },    
+});

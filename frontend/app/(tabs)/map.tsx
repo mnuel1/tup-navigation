@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, View, Image, Dimensions } from 'react-native';
 import Node from '@/components/map/Node';
 import Connection from '@/components/map/Connection';
@@ -21,6 +22,112 @@ function clamp(val:any, min:any, max:any) {
 }
 
 export default function TabThreeScreen() {
+  const [connections, setConnections] = useState([
+    { start: { x: 807, y: 558, label: '0' }, end: { x: 774, y: 546, label: '1' }, active: false },
+    { start: { x: 807, y: 558, label: '0' }, end: { x: 789, y: 546, label: '2' }, active: false },
+    { start: { x: 807, y: 558, label: '0' }, end: { x: 804, y: 546, label: '3' }, active: false },
+    { start: { x: 807, y: 558, label: '0' }, end: { x: 819, y: 546, label: '4' }, active: false },
+    { start: { x: 807, y: 558, label: '0' }, end: { x: 834, y: 546, label: '5' }, active: false },
+    { start: { x: 774, y: 546, label: '1' }, end: { x: 834, y: 531, label: '10' }, active: false },
+    { start: { x: 774, y: 546, label: '1' }, end: { x: 819, y: 531, label: '9' }, active: false },
+    { start: { x: 774, y: 546, label: '1' }, end: { x: 804, y: 531, label: '8' }, active: false },
+    { start: { x: 774, y: 546, label: '1' }, end: { x: 789, y: 531, label: '7' }, active: false },
+    { start: { x: 774, y: 546, label: '1' }, end: { x: 774, y: 531, label: '6' }, active: false },
+    { start: { x: 789, y: 546, label: '2' }, end: { x: 834, y: 531, label: '10' }, active: false },
+    { start: { x: 789, y: 546, label: '2' }, end: { x: 819, y: 531, label: '9' }, active: false },
+    { start: { x: 789, y: 546, label: '2' }, end: { x: 804, y: 531, label: '8' }, active: false },
+    { start: { x: 789, y: 546, label: '2' }, end: { x: 789, y: 531, label: '7' }, active: false },
+    { start: { x: 789, y: 546, label: '2' }, end: { x: 774, y: 531, label: '6' }, active: false },
+    { start: { x: 804, y: 546, label: '3' }, end: { x: 834, y: 531, label: '10' }, active: false },
+    { start: { x: 804, y: 546, label: '3' }, end: { x: 819, y: 531, label: '9' }, active: false },
+    { start: { x: 804, y: 546, label: '3' }, end: { x: 804, y: 531, label: '8' }, active: false },
+    { start: { x: 804, y: 546, label: '3' }, end: { x: 789, y: 531, label: '7' }, active: false },
+    { start: { x: 804, y: 546, label: '3' }, end: { x: 774, y: 531, label: '6' }, active: false },
+    { start: { x: 819, y: 546, label: '4' }, end: { x: 834, y: 531, label: '10' }, active: false },
+    { start: { x: 819, y: 546, label: '4' }, end: { x: 819, y: 531, label: '9' }, active: false },
+    { start: { x: 819, y: 546, label: '4' }, end: { x: 804, y: 531, label: '8' }, active: false },
+    { start: { x: 819, y: 546, label: '4' }, end: { x: 789, y: 531, label: '7' }, active: false },
+    { start: { x: 819, y: 546, label: '4' }, end: { x: 774, y: 531, label: '6' }, active: false },
+    { start: { x: 834, y: 546, label: '5' }, end: { x: 834, y: 531, label: '10' }, active: false },
+    { start: { x: 834, y: 546, label: '5' }, end: { x: 819, y: 531, label: '9' }, active: false },
+    { start: { x: 834, y: 546, label: '5' }, end: { x: 804, y: 531, label: '8' }, active: false },
+    { start: { x: 834, y: 546, label: '5' }, end: { x: 789, y: 531, label: '7' }, active: false },
+    { start: { x: 834, y: 546, label: '5' }, end: { x: 774, y: 531, label: '6' }, active: false },
+    
+    { start: { x: 774, y: 531, label: '6' }, end: { x: 834, y: 516, label: '15' }, active: false },
+    { start: { x: 774, y: 531, label: '6' }, end: { x: 819, y: 516, label: '14' }, active: false },
+    { start: { x: 774, y: 531, label: '6' }, end: { x: 804, y: 516, label: '13' }, active: false },
+    { start: { x: 774, y: 531, label: '6' }, end: { x: 789, y: 516, label: '12' }, active: false },
+    { start: { x: 774, y: 531, label: '6' }, end: { x: 774, y: 516, label: '11' }, active: false },
+    { start: { x: 789, y: 531, label: '7' }, end: { x: 834, y: 516, label: '15' }, active: false },
+    { start: { x: 789, y: 531, label: '7' }, end: { x: 819, y: 516, label: '14' }, active: false },
+    { start: { x: 789, y: 531, label: '7' }, end: { x: 804, y: 516, label: '13' }, active: false },
+    { start: { x: 789, y: 531, label: '7' }, end: { x: 789, y: 516, label: '12' }, active: false },
+    { start: { x: 789, y: 531, label: '7' }, end: { x: 774, y: 516, label: '11' }, active: false },
+    { start: { x: 804, y: 531, label: '8' }, end: { x: 834, y: 516, label: '15' }, active: false },
+    { start: { x: 804, y: 531, label: '8' }, end: { x: 819, y: 516, label: '14' }, active: false },
+    { start: { x: 804, y: 531, label: '8' }, end: { x: 804, y: 516, label: '13' }, active: false },
+    { start: { x: 804, y: 531, label: '8' }, end: { x: 789, y: 516, label: '12' }, active: false },
+    { start: { x: 804, y: 531, label: '8' }, end: { x: 774, y: 516, label: '11' }, active: false },
+    { start: { x: 819, y: 531, label: '9' }, end: { x: 834, y: 516, label: '15' }, active: false },
+    { start: { x: 819, y: 531, label: '9' }, end: { x: 819, y: 516, label: '14' }, active: false },
+    { start: { x: 819, y: 531, label: '9' }, end: { x: 804, y: 516, label: '13' }, active: false },
+    { start: { x: 819, y: 531, label: '9' }, end: { x: 789, y: 516, label: '12' }, active: false },
+    { start: { x: 819, y: 531, label: '9' }, end: { x: 774, y: 516, label: '11' }, active: false },
+    { start: { x: 834, y: 531, label: '10' }, end: { x: 834, y: 516, label: '15' }, active: false },
+    { start: { x: 834, y: 531, label: '10' }, end: { x: 819, y: 516, label: '14' }, active: false },
+    { start: { x: 834, y: 531, label: '10' }, end: { x: 804, y: 516, label: '13' }, active: false },
+    { start: { x: 834, y: 531, label: '10' }, end: { x: 789, y: 516, label: '12' }, active: false },
+    { start: { x: 834, y: 531, label: '10' }, end: { x: 774, y: 516, label: '11' }, active: false },
+    { start: { x: 774, y: 516, label: '11' }, end: { x: 834, y: 501, label: '20' }, active: false },
+    { start: { x: 774, y: 516, label: '11' }, end: { x: 819, y: 501, label: '19' }, active: false },
+    { start: { x: 774, y: 516, label: '11' }, end: { x: 804, y: 501, label: '18' }, active: false },
+    { start: { x: 774, y: 516, label: '11' }, end: { x: 789, y: 501, label: '17' }, active: false },
+    { start: { x: 774, y: 516, label: '11' }, end: { x: 774, y: 501, label: '16' }, active: false },    
+    { start: { x: 789, y: 516, label: '12' }, end: { x: 834, y: 501, label: '20' }, active: false },
+    { start: { x: 789, y: 516, label: '12' }, end: { x: 819, y: 501, label: '19' }, active: false },
+    { start: { x: 789, y: 516, label: '12' }, end: { x: 804, y: 501, label: '18' }, active: false },
+    { start: { x: 789, y: 516, label: '12' }, end: { x: 789, y: 501, label: '17' }, active: false },
+    { start: { x: 789, y: 516, label: '12' }, end: { x: 774, y: 501, label: '16' }, active: false },
+    { start: { x: 804, y: 516, label: '13' }, end: { x: 834, y: 501, label: '20' }, active: false },
+    { start: { x: 804, y: 516, label: '13' }, end: { x: 819, y: 501, label: '19' }, active: false },
+    { start: { x: 804, y: 516, label: '13' }, end: { x: 804, y: 501, label: '18' }, active: false },
+    { start: { x: 804, y: 516, label: '13' }, end: { x: 789, y: 501, label: '17' }, active: false },
+    { start: { x: 804, y: 516, label: '13' }, end: { x: 774, y: 501, label: '16' }, active: false },
+    { start: { x: 819, y: 516, label: '14' }, end: { x: 834, y: 501, label: '20' }, active: false },
+    { start: { x: 819, y: 516, label: '14' }, end: { x: 819, y: 501, label: '19' }, active: false },
+    { start: { x: 819, y: 516, label: '14' }, end: { x: 804, y: 501, label: '18' }, active: false },
+    { start: { x: 819, y: 516, label: '14' }, end: { x: 789, y: 501, label: '17' }, active: false },
+    { start: { x: 819, y: 516, label: '14' }, end: { x: 774, y: 501, label: '16' }, active: false },
+    { start: { x: 834, y: 516, label: '15' }, end: { x: 834, y: 501, label: '20' }, active: false },
+    { start: { x: 834, y: 516, label: '15' }, end: { x: 819, y: 501, label: '19' }, active: false },
+    { start: { x: 834, y: 516, label: '15' }, end: { x: 804, y: 501, label: '18' }, active: false },
+    { start: { x: 834, y: 516, label: '15' }, end: { x: 789, y: 501, label: '17' }, active: false },
+    { start: { x: 834, y: 516, label: '15' }, end: { x: 774, y: 501, label: '16' }, active: false },
+    { start: { x: 774, y: 501, label: '16' }, end: { x: 779, y: 486, label: '23' }, active: false },
+    { start: { x: 779, y: 486, label: '23' }, end: { x: 779, y: 471, label: '24' }, active: false },
+    { start: { x: 779, y: 471, label: '24' }, end: { x: 779, y: 456, label: '25' }, active: false },
+    { start: { x: 834, y: 501, label: '20' }, end: { x: 829, y: 486, label: '26' }, active: false },
+    { start: { x: 829, y: 486, label: '26' }, end: { x: 829, y: 471, label: '27' }, active: false },
+    { start: { x: 829, y: 471, label: '27' }, end: { x: 829, y: 456, label: '28' }, active: false },
+    { start: { x: 804, y: 501, label: '18' }, end: { x: 804, y: 488, label: '21' }, active: false },
+    { start: { x: 804, y: 488, label: '21' }, end: { x: 804, y: 475, label: '22' }, active: false },
+    { start: { x: 774, y: 516, label: '11' }, end: { x: 759, y: 516, label: '29' }, active: false },
+    { start: { x: 759, y: 516, label: '29' }, end: { x: 744, y: 516, label: '30' }, active: false },
+    { start: { x: 744, y: 516, label: '30' }, end: { x: 728, y: 516, label: '31' }, active: false },
+    { start: { x: 728, y: 516, label: '31' }, end: { x: 713, y: 516, label: '32' }, active: false },
+
+    { start: { x: 834, y: 516, label: '15' }, end: { x: 849, y: 516, label: '33' }, active: false },
+    { start: { x: 849, y: 516, label: '33' }, end: { x: 865, y: 516, label: '34' }, active: false },
+    { start: { x: 865, y: 516, label: '34' }, end: { x: 880, y: 516, label: '35' }, active: false },
+    { start: { x: 880, y: 516, label: '35' }, end: { x: 895, y: 516, label: '36' }, active: false },
+    { start: { x: 895, y: 516, label: '36' }, end: { x: 910, y: 516, label: '37' }, active: false },
+
+
+    
+
+
+  ]);
   const scale = useSharedValue(1);
   const startScale = useSharedValue(0);
   const translateX = useSharedValue(0);
@@ -62,6 +169,33 @@ export default function TabThreeScreen() {
 
   const composedGesture = Gesture.Simultaneous(pinch, pan);
 
+  const activateConnections = (path:any) => {
+    const newConnections = connections.map((connection) => ({
+      ...connection,
+      active: false,
+    }));
+
+    for (let i = 0; i < path.length - 1; i++) {
+      const startLabel = path[i];
+      const endLabel = path[i + 1];
+      
+      newConnections.forEach((connection) => {
+        if (
+          (connection.start.label === startLabel && connection.end.label === endLabel) ||
+          (connection.start.label === endLabel && connection.end.label === startLabel)
+        ) {
+          connection.active = true;
+        }
+      });
+    }
+
+    setConnections(newConnections);
+  };
+
+  useEffect(() => {
+    const path = ['1', '6', '11', '29',];
+    // activateConnections(path);
+  }, []);
   return (
     <ParallaxScrollView
       isMap={true}
@@ -76,9 +210,7 @@ export default function TabThreeScreen() {
                   style={styles.backgroundImage}
                   resizeMode="center"
                 />
-                {/*
-                
-                <Connection start={{ x: 60, y: 80 }} end={{ x: 210, y: 60 }} /> */}
+     
 
                 <Node x={905} y={504} label="51/clinic" />
                 <Node x={895} y={528} label="50/museum" />
@@ -146,6 +278,10 @@ export default function TabThreeScreen() {
 
                 <Node x={805} y={558} label="0"/>
 
+                {connections.map((conn, index) => (
+                  <Connection key={index} start={conn.start} end={conn.end} active={conn.active} />
+                ))}
+                
               </Animated.View>
             </GestureDetector>
           </GestureHandlerRootView>

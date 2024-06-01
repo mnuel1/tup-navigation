@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, View, Image, Dimensions } from 'react-native';
 import Node from '@/components/map/Node';
+import InputBoxComponent from '@/components/InputBox';
 import Connection from '@/components/map/Connection';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -22,6 +23,8 @@ function clamp(val:any, min:any, max:any) {
 }
 
 export default function TabThreeScreen() {
+  const [start, setStart] = useState('')
+  const [end, setEnd] = useState('')
   const [connections, setConnections] = useState([
     { start: { x: 807, y: 558, label: '0' }, end: { x: 774, y: 546, label: '1' }, active: false },
     { start: { x: 807, y: 558, label: '0' }, end: { x: 789, y: 546, label: '2' }, active: false },
@@ -260,6 +263,9 @@ export default function TabThreeScreen() {
     setConnections(newConnections);
   };
 
+  const handleSetStart = (text: string) => { setStart(text) }
+  const handleSetEnd = (text: string) => { setEnd(text) }
+
   useEffect(() => {
     const path = ['150', '153', '154', '155', '152'];
     // activateConnections(path);
@@ -291,6 +297,16 @@ export default function TabThreeScreen() {
     >
       <View style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
+
+        <View style={styles.inputboxes}>
+          <InputBoxComponent             
+            placeholder='Currently at...' 
+            onInputChange={handleSetStart} />
+          <InputBoxComponent             
+            placeholder='Your Destination...' 
+            onInputChange={handleSetEnd} />
+        </View>
+        
       </View>
     </ParallaxScrollView>
   );
@@ -324,8 +340,11 @@ const styles = StyleSheet.create({
     pointerEvents: 'none',
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     gap: 8,
+  },
+  inputboxes: {
+    gap:4
   },
   header: {
     height: '100%',

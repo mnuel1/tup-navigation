@@ -4,9 +4,10 @@ import { AntDesign } from '@expo/vector-icons';
 
 interface SearchComponentProps {
   data: string[];
+  onSearchChange: (query: string) => void;
 }
 
-const SearchComponent: React.FC<SearchComponentProps> = ({ data }) => {
+const SearchComponent: React.FC<SearchComponentProps> = ({ data, onSearchChange  }) => {
   const [query, setQuery] = useState<string>('');
   const [filteredData, setFilteredData] = useState<string[]>(data);
 
@@ -16,6 +17,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({ data }) => {
       item.toLowerCase().includes(text.toLowerCase())
     );
     setFilteredData(filtered);
+    onSearchChange(text); 
   };
 
   return (

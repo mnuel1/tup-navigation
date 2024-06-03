@@ -30,7 +30,7 @@ export default function TabThreeScreen() {
 
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
-  const [floor, setFloor] = useState(2)
+  const [floor, setFloor] = useState(4)
   const [connections, setConnections] = useState<ConnectionsByFloor>(nodeConnections);
   const floorsImage = FloorsImage
 
@@ -123,7 +123,8 @@ export default function TabThreeScreen() {
                   <Connection key={index} start={conn.start} end={conn.end} active={conn.active} />
                 ))}
 
-                                              
+                  {/*  */}
+
               </Animated.View>
             </GestureDetector>
           </GestureHandlerRootView>

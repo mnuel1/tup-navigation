@@ -135,7 +135,7 @@ cafa/cie first floor
 <Node x={666} y={516} label="148" />
 
 
-cos/cie 2nd floor
+cos/cla 2nd floor
 <Node x={909} y={519} label="101/cos 203" />
 <Node x={899} y={519} label="100/cos 205" />
 <Node x={890} y={519} label="99/cos 207" />
@@ -191,3 +191,223 @@ cos/cie 2nd floor
 
 <Node x={732} y={534} label="53/stair down" />
 <Node x={721} y={534} label="52/stair up" />
+
+cie/cafa 2nd floor
+<Node x={596} y={451} label="274/cafa 203" />
+<Node x={607} y={436} label="273/cafa 202" />
+<Node x={618} y={423} label="272/cafa 201" /> 
+<Node x={581} y={404} label="271/cafa 213" />
+<Node x={573} y={416} label="270/cafa 212" />
+<Node x={562} y={430} label="269/cafa 211" />
+<Node x={551} y={446} label="268/cafa 210" />
+
+<Node x={540} y={462} label="267/cafa 209" />
+<Node x={532} y={476} label="266/cafa 208" />
+<Node x={528} y={496} label="265/cafa 207" />
+<Node x={533} y={507} label="264/cafa 206" />
+
+<Node x={562} y={478} label="263/cafa 204" />
+<Node x={562} y={508} label="261/cafa 205" />
+<Node x={548} y={525} label="260/cie 207" />
+<Node x={566} y={525} label="259/cie 206" />
+
+<Node x={588} y={502} label="258/cie 208" />
+<Node x={598} y={525} label="257/cie 205" />
+<Node x={609} y={525} label="256/cie 204" />
+<Node x={621} y={525} label="255/cie 203" />
+<Node x={633} y={525} label="254/cie 202" />
+<Node x={603} y={488} label="253/cie 209" />
+<Node x={620} y={488} label="252/cie 210" />
+<Node x={632} y={488} label="251/cie 211" />
+<Node x={641} y={488} label="250/cie 212" />
+<Node x={645} y={525} label="249/cie 201" />
+<Node x={649} y={488} label="248/cie 213" />
+<Node x={656} y={495} label="247/cie 214" />
+<Node x={588} y={472} label="246/cr" />
+<Node x={654} y={530} label="245/cr" />
+<Node x={587} y={462} label="244" />
+<Node x={583} y={467} label="243" />
+<Node x={534} y={525} label="242" />
+<Node x={643} y={503} label="241" />
+<Node x={663} y={530} label="240" />
+<Node x={672} y={530} label="239" />
+<Node x={580} y={460} label="238" />
+<Node x={590} y={446} label="237" />
+<Node x={601} y={430} label="236" />
+<Node x={609} y={420} label="235" />
+<Node x={603} y={410} label="234" />
+<Node x={591} y={408} label="233" />
+<Node x={581} y={422} label="232" />
+<Node x={570} y={436} label="231" />
+<Node x={560} y={450} label="230" />
+<Node x={548} y={464} label="229" />
+<Node x={539} y={479} label="228" />
+<Node x={534} y={493} label="227" />
+<Node x={539} y={503} label="226" />
+<Node x={570} y={475} label="225" />
+<Node x={570} y={488} label="224" />
+<Node x={546} y={517} label="223" />
+<Node x={571} y={515} label="222" />
+<Node x={597} y={517} label="221" />
+<Node x={603} y={495} label="220" />
+<Node x={609} y={515} label="219" />
+<Node x={617} y={495} label="218" />
+<Node x={621} y={515} label="217" />
+<Node x={637} y={495} label="216" />
+<Node x={633} y={515} label="215" />
+<Node x={649} y={495} label="214" />
+<Node x={649} y={515} label="213" />
+<Node x={660} y={515} label="212" />
+<Node x={672} y={515} label="211" />
+<Node x={701} y={515} label="210" />
+
+cos/cla 3rd floor
+<Node x={905} y={524} label="147" />
+<Node x={896} y={524} label="146" />
+<Node x={886} y={524} label="145" />
+<Node x={876} y={524} label="144" />
+<Node x={905} y={508} label="143" />
+<Node x={895} y={508} label="142" />
+<Node x={887} y={508} label="141" />
+<Node x={878} y={508} label="140" />
+<Node x={854} y={524} label="139" />
+<Node x={838} y={524} label="138" />
+<Node x={820} y={524} label="137" />
+<Node x={856} y={508} label="136" />
+<Node x={846} y={508} label="135" />
+<Node x={836} y={508} label="134" />
+<Node x={824} y={508} label="133" /> 
+<Node x={780} y={524} label="131" />
+<Node x={770} y={524} label="130" />
+<Node x={755} y={524} label="129" />
+<Node x={745} y={524} label="128" />
+<Node x={788} y={508} label="127" />
+<Node x={776} y={508} label="126" />
+<Node x={763} y={508} label="125" />
+<Node x={753} y={508} label="124" />
+<Node x={743} y={508} label="123" />
+
+<Node x={715} y={524} label="122" />
+<Node x={868} y={504} label="121" />
+<Node x={813} y={504} label="120" />
+<Node x={803} y={504} label="119" />
+<Node x={868} y={526} label="118" />
+<Node x={868} y={540} label="117" />
+<Node x={899} y={516} label="116" />
+<Node x={884} y={516} label="115" />
+<Node x={868} y={516} label="114" />
+<Node x={853} y={516} label="113" />
+<Node x={838} y={516} label="112" />
+<Node x={823} y={516} label="111" />
+<Node x={808} y={516} label="110" />
+<Node x={793} y={516} label="109" />
+<Node x={778} y={516} label="108" />
+<Node x={763} y={516} label="107" />
+<Node x={747} y={516} label="106" />
+<Node x={732} y={516} label="105" />
+<Node x={718} y={516} label="104" />
+
+<Node x={725} y={528} label="103" />
+<Node x={725} y={540} label="102" /> 
+
+cie/cafa 3rd floor
+
+<Node x={596} y={451} label="332/cafa 303" />
+<Node x={607} y={436} label="331/cafa 302" />
+<Node x={618} y={423} label="330/cafa 301" /> 
+<Node x={581} y={404} label="329/cafa 313" />
+<Node x={573} y={416} label="328/cafa 312" />
+<Node x={562} y={430} label="327/cafa 311" />
+<Node x={551} y={446} label="326/cafa 310" />
+<Node x={540} y={462} label="325/cafa 309" />
+<Node x={532} y={476} label="324/cafa 308" />
+<Node x={528} y={496} label="323/cafa 307" />
+<Node x={533} y={507} label="322/cafa 306" />
+<Node x={562} y={478} label="321/cafa 304" />
+<Node x={562} y={508} label="320/cafa 305" />
+<Node x={548} y={525} label="319/student" />
+<Node x={566} y={525} label="318/cie 306" />
+<Node x={588} y={502} label="317/cie 307" />
+<Node x={598} y={525} label="316/cie 305" />
+<Node x={609} y={525} label="315/cie 304" />
+<Node x={621} y={525} label="314/cie 303" />
+<Node x={633} y={525} label="313/cie 302" />
+<Node x={645} y={525} label="312/cie 301" />
+<Node x={603} y={488} label="311/cie 308" />
+<Node x={620} y={488} label="310/cie 308b" />
+<Node x={632} y={488} label="309/cie 309" />
+<Node x={641} y={488} label="308/cie 310" />
+<Node x={649} y={488} label="307/cie 311" />
+<Node x={656} y={495} label="306/cie 300" />
+<Node x={588} y={472} label="305/cr" />
+<Node x={587} y={462} label="304" />
+<Node x={583} y={467} label="303" />
+<Node x={534} y={525} label="302" />
+<Node x={663} y={530} label="301" />
+<Node x={580} y={460} label="300" />
+<Node x={590} y={446} label="299" />
+<Node x={601} y={430} label="298" />
+<Node x={609} y={420} label="297" />
+<Node x={603} y={410} label="296" />
+<Node x={591} y={408} label="295" />
+<Node x={581} y={422} label="294" />
+<Node x={570} y={436} label="293" />
+<Node x={560} y={450} label="292" />
+<Node x={548} y={464} label="291" />
+<Node x={539} y={479} label="290" />
+<Node x={534} y={493} label="289" />
+<Node x={539} y={503} label="288" />
+
+<Node x={546} y={517} label="287" />
+<Node x={570} y={475} label="286" />
+<Node x={571} y={515} label="285" />
+<Node x={597} y={517} label="284" />
+<Node x={603} y={495} label="283" />
+<Node x={609} y={515} label="282" />
+<Node x={617} y={495} label="281" />
+<Node x={621} y={515} label="280" />
+<Node x={637} y={495} label="279" />
+<Node x={633} y={515} label="278" />
+<Node x={649} y={495} label="277" />
+<Node x={649} y={515} label="276" />
+<Node x={660} y={515} label="275" />
+<Node x={672} y={515} label="274" />
+
+cie/cafa 4th floor
+<Node x={578} y={482} label="366/cafa 405" />
+<Node x={596} y={451} label="365/cafa 403" />
+<Node x={607} y={436} label="364/cafa 402" />
+<Node x={618} y={423} label="363/cafa 401" /> 
+<Node x={581} y={404} label="362/cafa 413" />
+<Node x={573} y={416} label="361/cafa 412" />
+<Node x={562} y={430} label="360/cafa 411" />
+<Node x={551} y={446} label="359/cafa 410" />
+<Node x={540} y={462} label="358/cafa 409" />
+
+<Node x={562} y={478} label="357/cafa 404" />
+<Node x={562} y={490} label="356/cafa 406b" />
+<Node x={562} y={508} label="355/cafa 406a" />
+<Node x={532} y={476} label="354/cafa 408" />
+<Node x={533} y={507} label="353/cafa 407" />
+
+<Node x={588} y={472} label="352/cr" />
+<Node x={583} y={467} label="351/stair" />
+<Node x={534} y={525} label="350/stair" />
+<Node x={580} y={460} label="349" />
+<Node x={590} y={446} label="348" />
+<Node x={601} y={430} label="347" />
+<Node x={609} y={420} label="346" />
+<Node x={603} y={410} label="345" />
+<Node x={591} y={408} label="344" />
+<Node x={581} y={422} label="343" />
+<Node x={570} y={436} label="342" />
+<Node x={560} y={450} label="341" />
+<Node x={548} y={464} label="340" />
+<Node x={539} y={479} label="339" />
+<Node x={534} y={493} label="338" /> 
+<Node x={539} y={503} label="337" />
+
+<Node x={546} y={517} label="336" />
+<Node x={570} y={475} label="335" />
+<Node x={570} y={490} label="334" />
+<Node x={570} y={515} label="333" />

@@ -15,11 +15,11 @@ const FloorsImage: FloorsImageType = {
         style={styles.backgroundImage}
         resizeMode="center"/>,
     3: () => <Image
-        source={require('../assets/images/1st.png')}
+        source={require('../assets/images/3rd.png')}
         style={styles.backgroundImage}
         resizeMode="center"/>,
     4: () => <Image
-        source={require('../assets/images/1st.png')}
+        source={require('../assets/images/4th.png')}
         style={styles.backgroundImage}
         resizeMode="center"/>,
   

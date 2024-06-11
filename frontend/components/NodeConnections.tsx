@@ -253,9 +253,10 @@ const nodeConnections: ConnectionsByFloor = {
       { start: { x: 722, y: 455, label: '372' }, end: { x: 722, y:440, label: '374'  }, active: false },
       { start: { x: 722, y: 455, label: '372' }, end: { x: 722, y:465, label: '373'  }, active: false },
       { start: { x: 691, y: 455, label: '371' }, end: { x: 722, y:455, label: '372'  }, active: false },
-      { start: { x: 671, y: 470, label: '370' }, end: { x: 671, y: 480, label: '188'  }, active: false },   
+      { start: { x: 671, y: 470, label: '370' }, end: { x: 671, y:480, label: '188'  }, active: false },   
       { start: { x: 691, y: 470, label: '369' }, end: { x: 691, y:455, label: '371' }, active: false },
       { start: { x: 691, y: 470, label: '369' }, end: { x: 671, y:470, label: '370' }, active: false },
+      { start: { x: 691, y: 516, label: '368' }, end: { x: 666, y:516, label: '148' }, active: false },
       { start: { x: 691, y: 516, label: '368' }, end: { x: 691, y:556, label: '380' }, active: false },
       { start: { x: 691, y: 516, label: '368' }, end: { x: 691, y:470, label: '369' }, active: false },
       
@@ -573,7 +574,7 @@ const nodeConnections: ConnectionsByFloor = {
       
     ],
     4: [      
-      { start: {'x': 580, 'y': 460, 'label': '350'}, end: {'x': 583, 'y': 467, 'label': '304'}, active: false },
+      { start: {'x': 580, 'y': 460, 'label': '350'}, end: {'x': 583, 'y': 467, 'label': '352'}, active: false },
       { start: {'x': 590, 'y': 446, 'label': '349'}, end: {'x': 596, 'y': 451, 'label': '366'}, active: false },
       { start: {'x': 590, 'y': 446, 'label': '349'}, end: {'x': 580, 'y': 460, 'label': '350'}, active: false },
       { start: {'x': 601, 'y': 430, 'label': '348'}, end: {'x': 607, 'y': 436, 'label': '365'}, active: false },

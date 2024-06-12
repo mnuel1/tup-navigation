@@ -2,7 +2,7 @@ import { TouchableHighlight, View, StyleSheet, Image, Text} from "react-native"
 
 interface LegendBoxProps {
     name: string;
-    uri: string;
+    uri: number;
     active: boolean;
     onPress: () => void;
 }
@@ -19,11 +19,30 @@ export const LegendBox: React.FC<LegendBoxProps> = ({ name, uri, active, onPress
                 style={[styles.button , active && styles.activeButton]}
             >
                 <View style={styles.titleCont}>
-                                            
-                    <Image
+
+                    {name === 'cos' && <Image
                         style={styles.tinyLogo}
-                        source= {{uri}}
-                    />
+                        source={require('../assets/images/cos.jpg')}
+                        
+                    />}
+
+                    {name === 'cla' && <Image
+                        style={styles.tinyLogo}
+                        source={require('../assets/images/cla.jpg')}
+                        
+                    />}
+                    {name === 'cie' && <Image
+                        style={styles.tinyLogo}
+                        source={require('../assets/images/cie.jpg')}
+                        
+                    />}
+                    {name === 'cafa' && <Image
+                        style={styles.tinyLogo}
+                        source={require('../assets/images/cafa.jpg')}
+                        
+                    />}
+                    
+                    
                     
                     <Text style={{fontWeight:'bold'}}>{name.toUpperCase()}</Text>
                 </View>

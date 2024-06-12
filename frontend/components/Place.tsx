@@ -3,18 +3,20 @@ import { TouchableHighlight, View, StyleSheet, Image, Text} from "react-native"
 interface PlaceBoxProps {
     title: string;
     sub_text: string
+    floor?: string
     uri: string;    
     onPress: () => void;
 }
   
-export const PlaceBox: React.FC<PlaceBoxProps> = ({ title, uri, sub_text, onPress }) => {
+export const PlaceBox: React.FC<PlaceBoxProps> = ({ title, uri, sub_text, floor, onPress }) => {
 
     return(
         <View style={{marginRight:6}}>
             <TouchableHighlight 
             activeOpacity={1}
             underlayColor="#D29290"
-            style={[styles.button]}>
+            style={[styles.button]}
+            onPress={onPress}>
 
                 <View style={styles.mainCont}>                                            
                     <Image
@@ -23,7 +25,9 @@ export const PlaceBox: React.FC<PlaceBoxProps> = ({ title, uri, sub_text, onPres
                     <View style={styles.titleCont}>
 
                         <Text style={{fontWeight:'bold'}}>{title.toUpperCase()}</Text>
-                        <Text style={{fontWeight:'light', color:"gray"}}>{sub_text}</Text>
+                        {sub_text !== "" && <Text style={{fontWeight:'light', color:"gray"}}>{sub_text}</Text>}
+                        
+                        {floor && <Text style={{fontWeight:'light', color:"gray"}}> Floor: {floor}</Text>}
                     </View>
                 </View>
             </TouchableHighlight>

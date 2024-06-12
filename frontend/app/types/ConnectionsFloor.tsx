@@ -3,6 +3,7 @@ export interface Coordinate {
     x: number;
     y: number;
     label: string;
+    floor?: number;
   }
   
   export interface ConnectionType {

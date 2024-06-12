@@ -30,7 +30,7 @@ export default function TabThreeScreen() {
 
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
-  const [floor, setFloor] = useState(4)
+  const [floor, setFloor] = useState(3)
   const [connections, setConnections] = useState<ConnectionsByFloor>(nodeConnections);
   const floorsImage = FloorsImage
 
@@ -122,43 +122,6 @@ export default function TabThreeScreen() {
                 {connections[floor] && connections[floor].map((conn, index) => (
                   <Connection key={index} start={conn.start} end={conn.end} active={conn.active} />
                 ))}
-                <Node x={578} y={482} label="366/cafa 405" />
-<Node x={596} y={451} label="366/cafa 403" />
-<Node x={607} y={436} label="365/cafa 402" />
-<Node x={618} y={423} label="364/cafa 401" /> 
-<Node x={581} y={404} label="363/cafa 413" />
-<Node x={573} y={416} label="362/cafa 412" />
-<Node x={562} y={430} label="361/cafa 411" />
-<Node x={551} y={446} label="360/cafa 410" />
-<Node x={540} y={462} label="359/cafa 409" />
-
-<Node x={562} y={478} label="358/cafa 404" />
-<Node x={562} y={490} label="357/cafa 406b" />
-<Node x={562} y={508} label="356/cafa 406a" />
-<Node x={532} y={476} label="355/cafa 408" />
-<Node x={533} y={507} label="354/cafa 407" />
-
-<Node x={588} y={472} label="353/cr" />
-<Node x={583} y={467} label="352/stair" />
-<Node x={534} y={525} label="351/stair" />
-<Node x={580} y={460} label="350" />
-<Node x={590} y={446} label="349" />
-<Node x={601} y={430} label="348" />
-<Node x={609} y={420} label="347" />
-<Node x={603} y={410} label="346" />
-<Node x={591} y={408} label="345" />
-<Node x={581} y={422} label="344" />
-<Node x={570} y={436} label="343" />
-<Node x={560} y={450} label="342" />
-<Node x={548} y={464} label="341" />
-<Node x={539} y={479} label="340" />
-<Node x={534} y={493} label="339" /> 
-<Node x={539} y={503} label="338" />
-
-<Node x={546} y={517} label="337" />
-<Node x={570} y={475} label="336" />
-<Node x={570} y={490} label="335" />
-<Node x={570} y={515} label="334" />
 
               </Animated.View>
             </GestureDetector>

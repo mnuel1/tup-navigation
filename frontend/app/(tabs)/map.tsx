@@ -19,6 +19,7 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
+import { useLocalSearchParams } from "expo-router";
 
 const { width, height } = Dimensions.get('screen');
 
@@ -28,12 +29,16 @@ function clamp(val:any, min:any, max:any) {
 
 export default function TabThreeScreen() {
 
+  const { roomLabel, roomName, roomFloor } = useLocalSearchParams();
+
+
   const [start, setStart] = useState('')
-  const [end, setEnd] = useState('')
-  const [floor, setFloor] = useState(3)
+  const [end, setEnd] = useState(roomName || "");
+  const [floor, setFloor] = useState(roomFloor || 1)
   const [connections, setConnections] = useState<ConnectionsByFloor>(nodeConnections);
   const floorsImage = FloorsImage
 
+  alert
   const scale = useSharedValue(1);
   const startScale = useSharedValue(0);
   const translateX = useSharedValue(0);
@@ -154,10 +159,12 @@ export default function TabThreeScreen() {
         <ThemedText type="title">Explore</ThemedText>
 
         <View style={styles.inputboxes}>
-          <InputBoxComponent             
+          <InputBoxComponent
+            value={start}
             placeholder='Currently at...' 
             onInputChange={handleSetStart} />
-          <InputBoxComponent             
+          <InputBoxComponent
+            value={end}
             placeholder='Your Destination...' 
             onInputChange={handleSetEnd} />
         </View>

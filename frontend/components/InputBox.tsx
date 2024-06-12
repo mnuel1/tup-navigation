@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
-interface InputBoxProp {  
+interface InputBoxProp {
+  value?: string  
   placeholder: string
   onInputChange: (text: string) => void;
 }
 
-const InputBoxComponent: React.FC<InputBoxProp> = ({ placeholder, onInputChange  }) => {
-  const [inputValue, setInputValue] = useState('');
+const InputBoxComponent: React.FC<InputBoxProp> = ({ value, placeholder, onInputChange  }) => {
+  const [inputValue, setInputValue] = useState(value || "");
 
   const handleInputChange = (text: string) => {
     setInputValue(text);

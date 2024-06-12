@@ -5,7 +5,7 @@ import { PlaceBox } from '@/components/Place';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { LegendBox } from '@/components/Legend';
-
+import { useRouter } from 'expo-router';
 
 const legendData = [
   { name: 'cos', uri: 1 },
@@ -17,6 +17,7 @@ const legendData = [
 
 
 export default function TabTwoScreen() {
+  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState<string>('cos');
   return (
     <ParallaxScrollView
@@ -53,7 +54,16 @@ export default function TabTwoScreen() {
                 sub_text={room.subName || ""}
                 floor={room.floor !== undefined ? room.floor.toFixed(0) : ""}
                 uri='https://www.claretschool.edu.ph/images/SHSCompLab/shs_comp_lab03.jpg' 
-                onPress={() => alert('yo')}
+                onPress={() => {
+                  router.push({ 
+                    pathname: 'map', 
+                    params: {
+                      roomLabel: room.label,
+                      roomName: room.name,
+                      roomFloor: room.floor || 1
+                    }
+                  });
+                }}
               />                            
             </View>
         ))}
@@ -70,7 +80,16 @@ export default function TabTwoScreen() {
             title={building.name} 
             sub_text={`Floor ${building.label}`}
             uri='https://www.claretschool.edu.ph/images/SHSCompLab/shs_comp_lab03.jpg' 
-            onPress={() => alert('yo')}/>
+            onPress={() => {
+              router.push({ 
+                pathname: 'map', 
+                params: {
+                  roomLabel: building.label,
+                  roomName: building.name,
+                  roomFloor: 1
+                }
+              });
+            }}/>
         ))}
         
         

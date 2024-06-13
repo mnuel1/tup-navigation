@@ -18,6 +18,7 @@ const InputBoxComponent: React.FC<InputBoxProp> = ({ value, placeholder, onInput
 
   return (
     <>
+    
       <View style={styles.container}>                
         <Entypo name="location-pin" size={24} color="#060930" />
         <TextInput

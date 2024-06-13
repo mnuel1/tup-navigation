@@ -140,7 +140,7 @@ export const Departments : DepartmentRooms = {
         },
         {
             name: 'COS 320',
-            subName: 'COS 320/Computer Studies Department',
+            subName: 'Comp Studies Dept',
             label: '127',
             floor: 3
 

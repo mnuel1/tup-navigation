@@ -393,6 +393,7 @@ const nodeConnections: ConnectionsByFloor = {
       { start: { x: 736, y: 510, label: '57' }, end: { x: 751, y: 510, label: '58' }, active: false },
       { start: { x: 721, y: 510, label: '56' }, end: { x: 701, y: 515, label: '210' }, active: false },
       { start: { x: 721, y: 510, label: '56' }, end: { x: 736, y: 510, label: '57' }, active: false },
+      { start: { x: 732, y: 522, label: '55' }, end: { x: 736, y: 510, label: '57' }, active: false },
       { start: { x: 721, y: 522, label: '54' }, end: { x: 721, y: 510, label: '56' }, active: false },
       { start: { x: 721, y: 522, label: '54' }, end: { x: 732, y: 522, label: '55' }, active: false },
       { start: { x: 732, y: 534, label: '53' }, end: { x: 732, y: 522, label: '55' }, active: false },

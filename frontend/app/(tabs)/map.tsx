@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react';
-import { StyleSheet, View, Image, Dimensions, ScrollView } from 'react-native';
+import React, {useState, useEffect, useContext} from 'react';
+import { StyleSheet, View, TouchableHighlight, Dimensions, ScrollView,Text } from 'react-native';
 import Node from '@/components/map/Node';
 import { ConnectionsByFloor } from '../types/ConnectionsFloor';
 import FloorsImage from '@/components/FloorsImage';
 import nodeConnections from '@/components/NodeConnections';
-import InputBoxComponent from '@/components/InputBox';
+import { ScannerCamera } from '@/components/Scanner';
+
 import Connection from '@/components/map/Connection';
 import { FloorLegend } from '@/components/FloorLegend';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
+import { Entypo } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import {
   Gesture,
   GestureDetector,
@@ -19,7 +22,9 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
 } from 'react-native-reanimated';
-import { useLocalSearchParams } from "expo-router";
+
+
+import { RoomContext } from '@/components/Context';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -29,16 +34,25 @@ function clamp(val:any, min:any, max:any) {
 
 export default function TabThreeScreen() {
 
-  const { roomLabel, roomName, roomFloor } = useLocalSearchParams();
+  const context = useContext(RoomContext);
+  if (!context) {
+    throw new Error('YourComponent must be used within a RoomProvider');
+  }
 
-
+  const { roomLabel, roomName, roomFloor } = context;
+  const [showScanner, setShowScanner] = useState(false);
   const [start, setStart] = useState('')
   const [end, setEnd] = useState(roomName || "");
+  const [path, setPath] = useState([])
   const [floor, setFloor] = useState(roomFloor || 1)
+  const [loading, setLoading] = useState(false)
   const [connections, setConnections] = useState<ConnectionsByFloor>(nodeConnections);
   const floorsImage = FloorsImage
+  
+  useEffect(() => {
+    setEnd(roomName || "");
+  }, [roomName]);
 
-  alert
   const scale = useSharedValue(1);
   const startScale = useSharedValue(0);
   const translateX = useSharedValue(0);
@@ -79,9 +93,6 @@ export default function TabThreeScreen() {
 
   const composedGesture = Gesture.Simultaneous(pinch, pan);
 
-  const handleSetStart = (text: string) => { setStart(text) }
-  const handleSetEnd = (text: string) => { setEnd(text) }
-
   const activateConnections = (floor:any, path: any) => {
     const newConnections = { ...connections };
     const floorConnections = newConnections[floor].map((connection) => ({
@@ -107,10 +118,45 @@ export default function TabThreeScreen() {
     setConnections(newConnections);
   };
 
+
   useEffect(() => {
-    const path = ['0', '1', '6'];
-    // activateConnections(floor, path);
-  }, []);
+    // const path = ['0', '1', '6', '11', '29', '30', '31', '39', '53', '55', '57', '58', '76'];
+      // const pathp = ['0', '3', '6', '11', '29', '38']
+    activateConnections(floor, path);
+    
+  }, [floor, path]);
+
+  const findPath = async () => {
+    
+    setLoading(true)
+    try {
+      if (!start && !end){
+        alert('Please Select your destination and current location')
+        return;
+      }
+      const url = `http://192.168.100.9:5000/find/path?start=${start}&end=${roomLabel}`;     
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        }
+    })
+      const data = await response.json();
+      
+
+      setPath(data.best_path)
+    } catch (error) {
+      console.log(error)
+      alert(error) 
+    }
+    setLoading(false)    
+  }
+
+  const handleDataScanned = (data: string) => {
+    setStart(data)
+    setShowScanner(false)
+  };
 
 
   return (
@@ -159,14 +205,43 @@ export default function TabThreeScreen() {
         <ThemedText type="title">Explore</ThemedText>
 
         <View style={styles.inputboxes}>
-          <InputBoxComponent
-            value={start}
-            placeholder='Currently at...' 
-            onInputChange={handleSetStart} />
-          <InputBoxComponent
-            value={end}
-            placeholder='Your Destination...' 
-            onInputChange={handleSetEnd} />
+            <Text style={{fontWeight:500}}>{'Your Current Location :'}</Text>
+              {!showScanner ? (
+                <TouchableHighlight 
+                activeOpacity={1}
+                underlayColor="#D29290"            
+                onPress={() => setShowScanner(true)}>
+                  <View style={styles.containerIB}>
+                  <Entypo name="location-pin" size={24} color="#060930" />
+                  <Text style={styles.inputBox}>{!start || start.length === 0 ? 'Scan the QR Code near you...' : start}</Text>
+                </View>
+                  
+                </TouchableHighlight>
+              ) : (
+                <ScannerCamera onDataScanned={handleDataScanned} />
+              )}
+            
+            
+            <Text style={{fontWeight:500}}>{'Your Destination :'}</Text>
+            <View style={styles.containerIB}>
+              <Entypo name="location-pin" size={24} color="#060930" />
+              <Text style={styles.inputBox}>{end || 'Your Destination...'}</Text>
+            </View>
+            {!loading && <TouchableHighlight 
+            activeOpacity={1}
+            underlayColor="#D29290"
+            style={styles.button}
+            // disabled={loading}
+            onPress={() => findPath()}>
+              <View style={styles.view}>
+                <AntDesign name="search1" size={24} color="black" />
+                <Text style={{fontWeight:400, fontSize: 18,color:'black'}}>Find</Text>
+              </View>
+              
+            </TouchableHighlight>}
+
+            
+            
         </View>
         
       </View>
@@ -174,6 +249,42 @@ export default function TabThreeScreen() {
   );
 }
 const styles = StyleSheet.create({
+  containerIB: {        
+    paddingHorizontal: 20,
+    display:'flex',
+    flexDirection:'row',    
+    alignItems:'center',
+    borderColor: 'rgba(6, 9, 48, 0.2)',
+    borderWidth: 1,
+    borderRadius: 5,
+    backgroundColor:'white'
+  },
+  inputBox: {    
+    padding: 15,
+    color:'#060930',
+    
+  },
+  button: {
+    display:'flex',        
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:"#D29290",
+    width:'100%',
+    marginTop:10,
+    borderColor: 'rgba(6, 9, 48, 0.2)',
+    borderWidth:1,
+    borderRadius:4,
+    padding:5
+
+  },
+  view:{
+    display:'flex',        
+    flexDirection:"row",
+    alignItems:'center',
+    justifyContent:'center',        
+    gap:4,
+  },
+  
   container: {
     flex: 1,
     alignItems: 'center',

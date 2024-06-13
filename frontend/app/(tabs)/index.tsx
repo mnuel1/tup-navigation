@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect  } from 'react';
 import { Image, StyleSheet, ScrollView, View } from 'react-native';
 import { Departments } from '@/components/places';
 import SearchComponent from '@/components/Search';
@@ -8,24 +8,27 @@ import { ThemedText } from '@/components/ThemedText';
 import { LegendBox } from '@/components/Legend';
 import { ViewMoreButton } from '@/components/ViewMore';
 import { useRouter } from 'expo-router';
+import { RoomContext } from '@/components/Context';
 
 export default function HomeScreen() {
   const router = useRouter();
+  const context = useContext(RoomContext);
+  if (!context) {
+    throw new Error('YourComponent must be used within a RoomProvider');
+  }
 
-  const [searchQuery, setSearchQuery] = useState('')
+  const { setRoomLabel, setRoomName, setRoomFloor } = context;
+  
+
   const [activeIndex, setActiveIndex] = useState<string>('cos');
-  const data = [
-    "sample1", "sample2"
-  ]
-
+  
   const legendData = [
     { name: 'cos', uri: 1 },
     { name: 'cla', uri: 1 },
     { name: 'cie', uri: 1 },
-    { name: 'cafa', uri: 1 },
-    
-  ]
-  const handleSetSearchQuery = (text: string) => { setSearchQuery(text) }
+    { name: 'cafa', uri: 1 },    
+  ]  
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -39,10 +42,7 @@ export default function HomeScreen() {
       <View style={styles.titleContainer}>
         <ThemedText type="title">TUP NAVIGATE</ThemedText>
       </View>
-      <View style={styles.container}>
-        <SearchComponent data={data} onSearchChange={handleSetSearchQuery}/>        
-      </View>
-
+      
       <ScrollView horizontal style={styles.legendCont}>
         {legendData.map((item, index) => (
           <LegendBox
@@ -67,15 +67,11 @@ export default function HomeScreen() {
                 sub_text={room.subName || ""}
                 floor={room.floor !== undefined ? room.floor.toFixed(0) : ""}
                 uri='https://www.claretschool.edu.ph/images/SHSCompLab/shs_comp_lab03.jpg' 
-                onPress={() => {
-                  router.push({ 
-                    pathname: 'map', 
-                    params: {
-                        roomLabel: typeof room.label === 'string' ? room.label : undefined,
-                        roomName: typeof room.name === 'string' ? room.name : undefined,
-                        roomFloor: typeof room.floor === 'number' ? room.floor : 1
-                    }
-                  });                
+                onPress={async () => {
+                  setRoomFloor(room.floor || 1)
+                  setRoomName(room.name)
+                  setRoomLabel(room.label)
+                  router.push('map')
                 }}
               />                                         
             </View>

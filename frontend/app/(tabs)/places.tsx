@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Image, View, ScrollView, Text } from 'react-native';
 import { Departments, Buildings } from '@/components/places';
 import { PlaceBox } from '@/components/Place';
@@ -6,7 +6,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { LegendBox } from '@/components/Legend';
 import { useRouter } from 'expo-router';
-
+import { RoomContext } from '@/components/Context';
 const legendData = [
   { name: 'cos', uri: 1 },
   { name: 'cla', uri: 1 },
@@ -18,6 +18,12 @@ const legendData = [
 
 export default function TabTwoScreen() {
   const router = useRouter();
+  const context = useContext(RoomContext);
+  if (!context) {
+    throw new Error('YourComponent must be used within a RoomProvider');
+  }
+
+  const { setRoomLabel, setRoomName, setRoomFloor } = context;
   const [activeIndex, setActiveIndex] = useState<string>('cos');
   return (
     <ParallaxScrollView
@@ -48,23 +54,19 @@ export default function TabTwoScreen() {
       <ThemedText type="subtitle">Rooms</ThemedText>
       <ScrollView horizontal>               
         {Departments[activeIndex.toUpperCase()].map((room, roomIndex) => (
-            <View key={roomIndex}>
+            <View key={roomIndex}>                          
               <PlaceBox 
                 title={room.name} 
                 sub_text={room.subName || ""}
                 floor={room.floor !== undefined ? room.floor.toFixed(0) : ""}
                 uri='https://www.claretschool.edu.ph/images/SHSCompLab/shs_comp_lab03.jpg' 
-                onPress={() => {
-                  router.push({ 
-                    pathname: 'map', 
-                    params: {
-                      roomLabel: room.label,
-                      roomName: room.name,
-                      roomFloor: room.floor || 1
-                    }
-                  });
+                onPress={async () => {
+                  setRoomFloor(room.floor || 1)
+                  setRoomName(room.name)
+                  setRoomLabel(room.label)
+                  router.push('map')             
                 }}
-              />                            
+              />              
             </View>
         ))}
              
@@ -80,15 +82,11 @@ export default function TabTwoScreen() {
             title={building.name} 
             sub_text={`Floor ${building.label}`}
             uri='https://www.claretschool.edu.ph/images/SHSCompLab/shs_comp_lab03.jpg' 
-            onPress={() => {
-              router.push({ 
-                pathname: 'map', 
-                params: {
-                  roomLabel: building.label,
-                  roomName: building.name,
-                  roomFloor: 1
-                }
-              });
+            onPress={async () => {
+              setRoomFloor(1)
+              setRoomName(building.name)
+              setRoomLabel(building.label)
+              router.push('map')             
             }}/>
         ))}
         

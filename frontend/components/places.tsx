@@ -6,7 +6,6 @@ interface Room {
     floor?: number;
 }
 
-  
 
 interface DepartmentRooms {
     [department: string]: Room[];

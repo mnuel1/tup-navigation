@@ -972,10 +972,437 @@ export const Departments : DepartmentRooms = {
     ],
     'CIT': [
         {
-            name: 'CAFA 101',
-            label: '209',
+            name: 'Dean Office',
+            label: '433',
             floor: 1
         },
+        {
+            name: 'Conf Room',
+            label: '434',
+            floor: 1
+        },
+        {
+            name: 'Internet Center',
+            label: '435',
+            floor: 1
+        },
+        {
+            name: 'ICT Center',
+            label: '436',
+            floor: 1
+        },
+        {
+            name: 'CAD/CAM Center',
+            label: '437',
+            floor: 1
+        },
+        {
+            name: 'Classroom 1',
+            label: '438',
+            floor: 1
+        },
+        {
+            name: 'Training Center',
+            label: '439',
+            floor: 1
+        },
+        {
+            name: 'Display Center',
+            label: '429',
+            floor: 1
+        },
+        {
+            name: 'Machinery Area 1',
+            label: '430',
+            floor: 1
+        },
+        {
+            name: 'Machinery Area 2',
+            label: '431',
+            floor: 1
+        },
+        {
+            name: 'Classroom 2',
+            label: '424',
+            floor: 1
+        },
+        {
+            name: 'Classroom 3',
+            label: '425',
+            floor: 1
+        },
+        {
+            name: 'Machinery Area 3',
+            label: '426',
+            floor: 1
+        },
+        {
+            name: 'Machinery Area 4',
+            label: '427',
+            floor: 1
+        },
+        {
+            name: 'Lecture Room',
+            label: '416',
+            floor: 1
+        },
+        {
+            name: 'Mechanical Dept',
+            label: '417',
+            floor: 1
+        },
+        {
+            name: 'Tool Room',
+            label: '418',
+            floor: 1
+        },
+        {
+            name: 'Power Room',
+            label: '419',
+            floor: 1
+        },
+        {
+            name: 'Comfort Room',
+            label: '420',
+            floor: 1
+        },
+        {
+            name: 'Comfort Room',
+            label: '421',
+            floor: 1
+        },
+        {
+            name: 'Classroom 4',
+            label: '422',
+            floor: 1
+        },
+        {
+            name: 'Classroom 5',
+            label: '423',
+            floor: 1
+        },
+        {
+            name: 'Classroom 1',
+            label: '474',
+            floor: 2
+        },
+        {
+            name: 'Classroom 2',
+            label: '475',
+            floor: 2
+        },
+        {
+            name: 'Faculty Room 1',
+            label: '476',
+            floor: 2
+        },
+        {
+            name: 'Classroom 3',
+            label: '477',
+            floor: 2
+        },
+        {
+            name: 'Faculty Room 2',
+            label: '478',
+            floor: 2
+        },
+        {
+            name: 'Lab Room 1',
+            label: '479',
+            floor: 2
+        },
+        {
+            name: 'Classroom 4',
+            label: '480',
+            floor: 2
+        },
+        {
+            name: 'Classroom 5',
+            label: '470',
+            floor: 2
+        },
+        {
+            name: 'Classroom 6',
+            label: '471',
+            floor: 2
+        },
+        {
+            name: 'Classroom 7',
+            label: '472',
+            floor: 2
+        },
+        {
+            name: 'Lab Room 2',
+            label: '473',
+            floor: 2
+        },
+        {
+            name: 'Classroom 8',
+            label: '465',
+            floor: 2
+        },
+        {
+            name: 'Classroom 9',
+            label: '466',
+            floor: 2
+        },
+        {
+            name: 'Classroom 10',
+            label: '467',
+            floor: 2
+        },
+        {
+            name: 'Classroom 11',
+            label: '468',
+            floor: 2
+        },
+        {
+            name: 'Classroom 12',
+            label: '458',
+            floor: 2
+        },
+        {
+            name: 'Workshop Room',
+            label: '459',
+            floor: 2
+        },
+        {
+            name: 'Classroom 13',
+            label: '460',
+            floor: 2
+        },
+        {
+            name: 'Comfort Room',
+            label: '461',
+            floor: 2
+        },
+        {
+            name: 'Comfort Room',
+            label: '462',
+            floor: 2
+        },
+        {
+            name: 'Classroom 14',
+            label: '463',
+            floor: 2
+        },
+        {
+            name: 'Classroom 15',
+            label: '464',
+            floor: 2
+        },
+        {
+            name: 'Audio Visual Room',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 1',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Faculty Room',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Computer Room',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 2',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Accre Room',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 3',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 4',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 5',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 6',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 7',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 8',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 9',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 10',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Comfort Room',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Comfort Room',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Lecture Room 11',
+            label: '464',
+            floor: 3
+        },
+        {
+            name: 'Faculty Room',
+            label: '564',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 1',
+            label: '565',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 2',
+            label: '566',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 3',
+            label: '567',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 4',
+            label: '568',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 5',
+            label: '569',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 6',
+            label: '570',
+            floor: 4
+        },
+        {
+            name: 'Lab Room 1',
+            label: '558',
+            floor: 4
+        },
+        {
+            name: 'Lab Room 2',
+            label: '559',
+            floor: 4
+        },
+        {
+            name: 'Lab Room 3',
+            label: '560',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 7',
+            label: '561',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 8',
+            label: '562',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 9',
+            label: '563',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 10',
+            label: '553',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 11',
+            label: '554',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 12',
+            label: '555',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 13',
+            label: '556',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 14',
+            label: '557',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 15',
+            label: '545',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 16',
+            label: '546',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 17',
+            label: '547',
+            floor: 4
+        },
+        {
+            name: 'Comfort Room',
+            label: '548',
+            floor: 4
+        },
+        {
+            name: 'Comfort Room',
+            label: '550',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 18',
+            label: '551',
+            floor: 4
+        },
+        {
+            name: 'Lecture Room 19',
+            label: '552',
+            floor: 4
+        },
+
+        
     ],    
 }
 
